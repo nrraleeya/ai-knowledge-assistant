@@ -14,6 +14,8 @@ export default function App() {
   const [openSources, setOpenSources] = useState({});
   const messagesEndRef = useRef(null);
 
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
+
   const toggleSource = (idx) => {
     setOpenSources(prev => ({ ...prev, [idx]: !prev[idx] }));
   };
@@ -33,7 +35,7 @@ export default function App() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/api/chat", {
+      const response = await fetch(`${API_BASE_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userMessage })
