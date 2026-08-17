@@ -1,0 +1,50 @@
+[
+  {
+    "id": "doc-wfh-01",
+    "title": "Flexible & Remote Working Policy",
+    "category": "HR Policy",
+    "content": "Blacksmith Data operates on a hybrid-remote model. Core Hours: All team members must be online and reachable between 10:00 AM – 4:00 PM (GMT+8) on working weekdays. Flexible Allowance: Total daily working requirement is 8 hours (e.g., 9:00 AM – 6:00 PM with 1 hour lunch break). Interns: Eligible for up to 2 days of WFH per week after completing their first 2 weeks of onboarding. Full-Time Engineers: Eligible for up to 3 days of WFH per week subject to team scheduling. Communication Protocol: Employees working remotely must update their Slack status (e.g., :house: Working Remote) and post a morning sync update in their team's Slack channel by 10:00 AM."
+  },
+  {
+    "id": "doc-leave-02",
+    "title": "Leave Application & Time-Off Guidelines",
+    "category": "HR Policy",
+    "content": "Annual leave and sick leave requests must be submitted via the HR Portal (https://hr.blacksmithdata.internal). Planned annual leave requires submission at least 3 days in advance. Emergency sick leaves require a valid Medical Certificate (MC) to be uploaded upon return."
+  },
+  {
+    "id": "doc-pwd-03",
+    "title": "Password Reset & Account Security",
+    "category": "IT Support",
+    "content": "To reset your company domain or Google Workspace password, navigate to https://auth.blacksmithdata.internal/reset. Passwords must be at least 14 characters long and include an uppercase letter, a number, and a special symbol. If you are locked out of your multi-factor authentication (MFA) device, submit an emergency ticket to it-helpdesk@blacksmithdata.internal or reach out to #it-support on Slack."
+  },
+  {
+    "id": "doc-vpn-04",
+    "title": "VPN & Internal Network Access",
+    "category": "IT Support",
+    "content": "All remote connections to staging and production infrastructure require connecting via the Blacksmith WireGuard VPN. Download the configuration profile from https://vpn.blacksmithdata.internal using your company SSO credentials. If connection drops persist, verify that UDP port 51820 is not blocked by your local ISP or router firewall."
+  },
+  {
+    "id": "doc-wifi-05",
+    "title": "Office WiFi Access Guidelines",
+    "category": "Office Operations",
+    "content": "Employees working from the physical office should connect to the 'Blacksmith-Secure' SSID using WPA2-Enterprise credentials (your corporate email and password). Guest access is provided via 'Blacksmith-Guest' with a daily rotating passcode displayed on the reception dashboard."
+  },
+  {
+    "id": "doc-laptop-06",
+    "title": "Hardware & Laptop Replacement Policy",
+    "category": "IT Assets",
+    "content": "Standard engineering workstations are refreshed every 3 years. If your company-issued MacBook Pro or ThinkPad experiences hardware failure or battery degradation below 80% health, submit a replacement request via the IT Asset Portal with supervisor approval."
+  },
+  {
+    "id": "doc-exp-07",
+    "title": "Expense Reimbursement Claims",
+    "category": "Finance",
+    "content": "Monthly work-related claims (home internet subsidy up to RM50/month, office transit, client dinners) must be submitted via the Expense Portal by the 25th of each calendar month. Itemized official tax receipts are strictly required for all claims."
+  },
+  {
+    "id": "doc-onb-08",
+    "title": "Employee Onboarding Workflow",
+    "category": "HR Policy",
+    "content": "New hires undergo a structured 2-week onboarding period. Week 1 focuses on IT asset provisioning, security compliance training, and HR benefits orientation. Week 2 covers codebase walkthroughs, repository access setup, and pairing with an assigned engineering mentor."
+  }
+]

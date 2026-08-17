@@ -1,0 +1,25 @@
+# Environment & Secrets
+.env
+backend/.env
+*.env
+
+# Python Caches & Environments
+__pycache__/
+*/__pycache__/
+.pytest_cache/
+*/.pytest_cache/
+venv/
+backend/venv/
+
+# Vector Store / Local DB
+chroma_db/
+backend/chroma_db/
+
+# Frontend Dependencies & Builds
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+
+# OS Artifacts
+.DS_Store
