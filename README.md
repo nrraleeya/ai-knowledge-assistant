@@ -70,32 +70,36 @@ graph TD
 
 ### Visual Component Flow
 
-```text
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                              PRESENTATION TIER                              │
-│   React 18 + Vite Web App (Deployed on Vercel)                              │
-│   ├── Responsive Chat Interface (Dark Theme with Rose Accents)              │
-│   ├── Collapsible Source Citation Cards                                     │
-│   └── Real-time Loading Animations & Connection Error Alerts                │
-└──────────────────────────────────────┬──────────────────────────────────────┘
-                                       │ HTTPS (JSON API)
-                                       ▼
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                                 BACKEND API                                 │
-│   FastAPI Application (Deployed on Render)                                  │
-│   ├── REST Endpoints (/api/chat, /api/documents)                            │
-│   ├── Pydantic Request/Response Validation                                  │
-│   ├── CORS Middleware & Error Handlers                                      │
-│   └── Structured Logging & Telemetry                                        │
-└──────────────────────┬───────────────────────────────┬──────────────────────┘
-                       │                               │
-                       ▼                               ▼
-┌──────────────────────────────────────┐ ┌────────────────────────────────────┐
-│              DATA TIER               │ │              AI TIER               │
-│   ChromaDB Persistent Store          │ │   Google Gemini API                │
-│   ├── HNSW Cosine Distance Index     │ │   ├── gemini-2.5-flash             │
-│   └── Seed Policies (HR, IT, Ops)    │ │   └── Strict Grounding Prompts     │
-└──────────────────────────────────────┘ └────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph Presentation [" PRESENTATION TIER (Vercel) "]
+        direction TB
+        UI["<b>React 18 + Vite Web App</b><br/>• Responsive Chat Interface (Dark Theme)<br/>• Collapsible Source Citation Cards<br/>• Real-time Loading & Connection Alerts"]
+    end
+
+    subgraph Backend [" BACKEND API (Render) "]
+        direction TB
+        API["<b>FastAPI Application</b><br/>• REST Endpoints (/api/chat, /api/documents)<br/>• Pydantic Request/Response Validation<br/>• CORS Middleware & Error Handlers<br/>• Structured Logging & Telemetry"]
+    end
+
+    subgraph Data [" DATA TIER "]
+        direction TB
+        DB["<b>ChromaDB Persistent Store</b><br/>• HNSW Cosine Distance Index<br/>• Seed Policies (HR, IT, Ops, Finance)"]
+    end
+
+    subgraph AI [" AI TIER "]
+        direction TB
+        LLM["<b>Google Gemini API</b><br/>• gemini-2.5-flash Engine<br/>• Strict Grounding & Anti-Hallucination Prompts"]
+    end
+
+    UI <-->|HTTPS / JSON API| API
+    API <-->|Cosine Similarity Retrieval| DB
+    API <-->|Context & Synthesis| LLM
+
+    %% Styling
+    classDef default fill:#1e1e2e,stroke:#cba6f7,stroke-width:1.5px,color:#cdd6f4;
+    classDef subGraphStyle fill:#11111b,stroke:#45475a,stroke-width:1px,color:#a6adc8;
+    class Presentation,Backend,Data,AI subGraphStyle;
 ```
 
 ---
