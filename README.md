@@ -17,19 +17,19 @@ Reviewers and team members can test the application live on mobile or desktop wi
 
 ## 1. Project Overview
 
-The **Blacksmith Data AI Knowledge Assistant** provides employees with real-time, accurate answers to organizational questions (such as remote work rules, VPN setups, expense claims, and onboarding schedules)[cite: 1, 2].
+The **Blacksmith Data AI Knowledge Assistant** provides employees with real-time, accurate answers to organizational questions (such as remote work rules, VPN setups, expense claims, and onboarding schedules).
 
 ### Key Highlights
-* **Grounded Synthesis:** Formulates answers strictly using retrieved company policy documents[cite: 1, 2].
-* **Verifiable Source Attribution:** Displays collapsible citation badges with exact document titles and source excerpts[cite: 1, 2].
-* **Anti-Hallucination Guardrails:** Distinguishes between in-scope queries and undocumented questions, falling back safely without inventing policies[cite: 1, 2].
-* **Live Knowledge Base Management:** REST endpoints to dynamically query, index, and purge policy documents at runtime[cite: 1, 2].
+* **Grounded Synthesis:** Formulates answers strictly using retrieved company policy documents.
+* **Verifiable Source Attribution:** Displays collapsible citation badges with exact document titles and source excerpts.
+* **Anti-Hallucination Guardrails:** Distinguishes between in-scope queries and undocumented questions, falling back safely without inventing policies.
+* **Live Knowledge Base Management:** REST endpoints to dynamically query, index, and purge policy documents at runtime.
 
 ---
 
 ## 2. Architecture
 
-The system enforces modular separation between the presentation tier, backend API routing, vector database persistence, and external LLM reasoning[cite: 1, 2].
+The system enforces modular separation between the presentation tier, backend API routing, vector database persistence, and external LLM reasoning.
 
 ### Architecture Concept Map
 
@@ -104,13 +104,13 @@ graph TD
 
 | Layer | Technology | Selection Rationale |
 | :--- | :--- | :--- |
-| **Frontend** | **React 18 + Vite**[cite: 1, 2] | Rapid build times, fast Hot Module Replacement (HMR), minimal bundle footprint, and efficient component-driven state management[cite: 1, 2]. |
+| **Frontend** | **React 18 + Vite** | Rapid build times, fast Hot Module Replacement (HMR), minimal bundle footprint, and efficient component-driven state management. |
 | **Styling** | **Tailwind CSS** | Clean responsive UI layout, dark-mode styling, and mobile-friendly utility classes. |
-| **Backend** | **FastAPI (Python)**[cite: 1, 2] | High asynchronous performance, native Pydantic schema validation, and automatic Swagger UI docs generation[cite: 1, 2]. |
-| **Database / Vector Store** | **ChromaDB**[cite: 1, 2] | Native Python integration, zero external operational overhead, disk persistence, and built-in HNSW cosine similarity search[cite: 1, 2]. |
-| **LLM Provider** | **Google Gemini (2.5 Flash)**[cite: 1, 2] | Fast generation speed, strict context adherence, generous rate limits, and free-tier access[cite: 1, 2]. |
+| **Backend** | **FastAPI (Python)** | High asynchronous performance, native Pydantic schema validation, and automatic Swagger UI docs generation. |
+| **Database / Vector Store** | **ChromaDB** | Native Python integration, zero external operational overhead, disk persistence, and built-in HNSW cosine similarity search. |
+| **LLM Provider** | **Google Gemini (2.5 Flash)** | Fast generation speed, strict context adherence, generous rate limits, and free-tier access. |
 | **HTTP Client** | **HTTPX** | Asynchronous HTTP client with connection pooling, timeout controls, and multi-model fallback resiliency. |
-| **Testing** | **Pytest + TestClient**[cite: 1, 2] | Fast, deterministic automated testing and assertions for API endpoints and RAG flows[cite: 1, 2]. |
+| **Testing** | **Pytest + TestClient** | Fast, deterministic automated testing and assertions for API endpoints and RAG flows. |
 
 ---
 
@@ -120,7 +120,7 @@ graph TD
 * **Python 3.10+** (`python --version`)
 * **Node.js 18+** & **npm** (`node -v` && `npm -v`)
 * **Git** installed on your system
-* A free **Google AI Studio API Key**[cite: 1, 2]
+* A free **Google AI Studio API Key**
 
 ### Clone Repository
 ```bash
@@ -132,14 +132,14 @@ cd ai-knowledge-assistant
 
 ## 5. Environment Variables
 
-Create a `.env` file inside the `backend/` directory using the provided `.env.example`[cite: 1, 2]:
+Create a `.env` file inside the `backend/` directory using the provided `.env.example`:
 
 ```bash
 cd backend
 cp .env.example .env
 ```
 
-Set the required environment variables inside `backend/.env`[cite: 1, 2]:
+Set the required environment variables inside `backend/.env`:
 ```env
 # Required: Google Gemini API Key from Google AI Studio
 GEMINI_API_KEY=your_gemini_api_key_here
@@ -152,7 +152,7 @@ LLM_MODEL=gemini-2.5-flash
 
 ## 6. How to Run the Frontend
 
-Open a terminal window and run[cite: 1, 2]:
+Open a terminal window and run:
 
 ```bash
 # 1. Navigate to frontend directory
@@ -171,7 +171,7 @@ npm run dev
 
 ## 7. How to Run the Backend
 
-Open a separate terminal window and run[cite: 1, 2]:
+Open a separate terminal window and run:
 
 ```bash
 # 1. Navigate to backend directory
@@ -191,7 +191,7 @@ pip install -r requirements.txt
 python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-* **Backend Local API:** `http://localhost:8000`[cite: 1, 2]
+* **Backend Local API:** `http://localhost:8000`
 * **Swagger UI Documentation:** `http://localhost:8000/docs`
 * **ReDoc Documentation:** `http://localhost:8000/redoc`
 
@@ -199,15 +199,15 @@ python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 
 ## 8. How to Run Tests
 
-The automated test suite verifies API request schemas, document CRUD lifecycles, semantic vector retrieval, grounded answering, and unknown question guardrails[cite: 1, 2].
+The automated test suite verifies API request schemas, document CRUD lifecycles, semantic vector retrieval, grounded answering, and unknown question guardrails.
 
-Run pytest inside the `backend/` directory[cite: 1, 2]:
+Run pytest inside the `backend/` directory:
 ```bash
 cd backend
 pytest -v
 ```
 
-Expected test output[cite: 1, 2]:
+Expected test output:
 ```text
 test_app.py::test_document_retrieval_semantic_match PASSED        [ 16%]
 test_app.py::test_document_retrieval_it_support PASSED            [ 33%]
@@ -224,14 +224,14 @@ test_app.py::test_rag_out_of_scope_guardrail PASSED               [100%]
 ## 9. API Documentation
 
 ### 1. Submit Chat Message
-* **Endpoint:** `POST /api/chat`[cite: 1, 2]
-* **Request Body:**[cite: 1, 2]
+* **Endpoint:** `POST /api/chat`
+* **Request Body:**
   ```json
   {
     "message": "What is the core working hours policy?"
   }
   ```
-* **Success Response (`200 OK`):**[cite: 1, 2]
+* **Success Response (`200 OK`):**
   ```json
   {
     "answer": "Core collaboration hours are 10:00 AM to 4:00 PM local time. Employees are expected to be available for team communications and scheduled meetings during this window.",
@@ -245,8 +245,8 @@ test_app.py::test_rag_out_of_scope_guardrail PASSED               [100%]
   ```
 
 ### 2. List All Indexed Documents
-* **Endpoint:** `GET /api/documents`[cite: 1, 2]
-* **Response (`200 OK`):**[cite: 1, 2]
+* **Endpoint:** `GET /api/documents`
+* **Response (`200 OK`):**
   ```json
   [
     {
@@ -259,8 +259,8 @@ test_app.py::test_rag_out_of_scope_guardrail PASSED               [100%]
   ```
 
 ### 3. Add / Index a New Document
-* **Endpoint:** `POST /api/documents`[cite: 1, 2]
-* **Request Body:**[cite: 1, 2]
+* **Endpoint:** `POST /api/documents`
+* **Request Body:**
   ```json
   {
     "id": "doc-parking-01",
@@ -269,7 +269,7 @@ test_app.py::test_rag_out_of_scope_guardrail PASSED               [100%]
     "content": "Employee parking passes are available for Basement Level 2."
   }
   ```
-* **Response (`201 Created`):**[cite: 1, 2]
+* **Response (`201 Created`):**
   ```json
   {
     "id": "doc-parking-01",
@@ -280,8 +280,8 @@ test_app.py::test_rag_out_of_scope_guardrail PASSED               [100%]
   ```
 
 ### 4. Delete a Document
-* **Endpoint:** `DELETE /api/documents/{doc_id}`[cite: 1, 2]
-* **Response (`200 OK`):**[cite: 1, 2]
+* **Endpoint:** `DELETE /api/documents/{doc_id}`
+* **Response (`200 OK`):**
   ```json
   {
     "message": "Document doc-parking-01 successfully deleted."
@@ -321,13 +321,13 @@ sequenceDiagram
 ```
 
 ### Retrieval & Guardrail Mechanics
-1. **Document Ingestion & Seeding:** On startup, `rag_service.py` parses `knowledge_base/seed_documents.json` and upserts policies across HR, IT Support, Operations, and Finance into ChromaDB using cosine distance indexing[cite: 1, 2].
-2. **Semantic Vector Search:** For incoming questions, ChromaDB executes an approximate nearest neighbor search ($Top\text{-}K = 2$)[cite: 1, 2]. A cosine distance cutoff threshold of $0.90$ filters out weakly correlated context.
-3. **Bounded Context Prompting:** Retrieved document chunks are assembled into a structured system prompt that explicitly instructs the model to rely solely on the provided excerpts and avoid external assumptions[cite: 1, 2].
-4. **Hallucination Prevention (Unknown Question Handling):** When a user asks a question outside the knowledge base (e.g., *"What is the company maternity leave policy?"*), the pipeline[cite: 1, 2]:
-   * Recognizes the knowledge gap via semantic distance or model fallback tokens[cite: 1, 2].
-   * Strips ungrounded citation cards (`sources: []`)[cite: 1, 2].
-   * Returns a clean fallback response: *"I could not find any policy regarding that in our company knowledge base. Please consult HR or IT directly."*[cite: 1, 2]
+1. **Document Ingestion & Seeding:** On startup, `rag_service.py` parses `knowledge_base/seed_documents.json` and upserts policies across HR, IT Support, Operations, and Finance into ChromaDB using cosine distance indexing.
+2. **Semantic Vector Search:** For incoming questions, ChromaDB executes an approximate nearest neighbor search ($Top\text{-}K = 2$). A cosine distance cutoff threshold of $0.90$ filters out weakly correlated context.
+3. **Bounded Context Prompting:** Retrieved document chunks are assembled into a structured system prompt that explicitly instructs the model to rely solely on the provided excerpts and avoid external assumptions.
+4. **Hallucination Prevention (Unknown Question Handling):** When a user asks a question outside the knowledge base (e.g., *"What is the company maternity leave policy?"*), the pipeline:
+   * Recognizes the knowledge gap via semantic distance or model fallback tokens.
+   * Strips ungrounded citation cards (`sources: []`).
+   * Returns a clean fallback response: *"I could not find any policy regarding that in our company knowledge base. Please consult HR or IT directly."*
 
 ---
 
@@ -341,7 +341,5 @@ sequenceDiagram
 
 ## 12. Potential Future Improvements
 
-1. **Hybrid Search (Dense Vectors + BM25):** Combine dense semantic embeddings with BM25 sparse keyword retrieval via Reciprocal Rank Fusion (RRF) for exact policy error code lookups.
-2. **Real-Time Token Streaming:** Implement Server-Sent Events (SSE) or WebSockets on `/api/chat` to stream responses token-by-token for lower perceived latency.
-3. **Conversational Multi-Turn Memory:** Add session ID support with sliding-window dialogue history to handle contextual follow-up questions.
-4. **Automated Document Ingestion Pipeline:** Create an admin upload dashboard supporting automated PDF, Markdown, and DOCX document parsing and chunking.
+1. **Conversational Multi-Turn Memory:** Add session ID support with sliding-window dialogue history to handle contextual follow-up questions.
+2. **Automated Document Ingestion Pipeline:** Create an admin upload dashboard supporting automated PDF, Markdown, and DOCX document parsing and chunking.
