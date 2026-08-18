@@ -108,14 +108,13 @@ flowchart TD
 
 | Layer | Technology | Selection Rationale |
 | :--- | :--- | :--- |
-| **Frontend** | **React 18 + Vite** | Rapid build times, fast Hot Module Replacement (HMR), minimal bundle footprint, and efficient component-driven state management. |
-| **Styling** | **Tailwind CSS** | Clean responsive UI layout, dark-mode styling, and mobile-friendly utility classes. |
-| **Backend** | **FastAPI (Python)** | High asynchronous performance, native Pydantic schema validation, and automatic Swagger UI docs generation. |
-| **Database / Vector Store** | **ChromaDB** | Native Python integration, zero external operational overhead, disk persistence, and built-in HNSW cosine similarity search. |
-| **LLM Provider** | **Google Gemini (2.5 Flash)** | Fast generation speed, strict context adherence, generous rate limits, and free-tier access. |
-| **HTTP Client** | **HTTPX** | Asynchronous HTTP client with connection pooling, timeout controls, and multi-model fallback resiliency. |
-| **Testing** | **Pytest + TestClient** | Fast, deterministic automated testing and assertions for API endpoints and RAG flows. |
-
+| **Frontend** | **React 18 + Vite** | Lightweight and fast dev setup with instant hot reloading, making UI iteration straightforward. |
+| **Styling** | **Tailwind CSS** | Speeds up styling with utility classes, making it simple to build a clean, responsive dark-mode chat layout. |
+| **Backend** | **FastAPI (Python)** | Simple async handling, automatic request validation with Pydantic, and built-in `/docs` Swagger support out of the box. |
+| **Vector Store** | **ChromaDB** | Runs directly inside Python and persists to disk without needing to spin up a separate database server or Docker container. |
+| **LLM Provider** | **Google Gemini (2.5 Flash)** | Fast response times, accurate context following to prevent hallucination, and generous free-tier limits. |
+| **HTTP Client** | **HTTPX** | Handles asynchronous API calls to Gemini cleanly with custom timeouts and error fallbacks. |
+| **Testing** | **Pytest + TestClient** | Fast, simple test execution for API endpoints, document CRUD, and RAG retrieval logic without heavy setup. |
 ---
 
 ## 4. Setup Instructions
